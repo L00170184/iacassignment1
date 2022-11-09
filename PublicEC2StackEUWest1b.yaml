@@ -1,0 +1,27 @@
+Resources: 
+  Assignment1PublicEC2EUWest1b:
+    Type: AWS::EC2::Instance
+    Properties: 
+      AvailabilityZone: eu-west-1b
+      ImageId: ami-0ee415e1b8b71305f
+      InstanceType: !Ref InstanceTypeParameter 
+      SecurityGroupIds:
+        - sg-01daa93d452d7bd21
+      SecurityGroups:
+        - jumpbox
+
+Outputs:
+  Assignment1PublicEC2EUWest1b:
+    Value: !Ref 'Assignment1PublicEC2EUWest1b'
+    Description: Assignment1 Public EC2 Instance
+
+Parameters:
+  InstanceTypeParameter:
+    Description: "Enter t2.nano or t2.micro. The default is set as t2.micro."
+    Type: String
+    Default: t2.micro
+    AllowedValues:
+      - t2.nano
+      - t2.micro
+    ConstraintDescription: "Only t2.nano or t2.micro are permitted."
+

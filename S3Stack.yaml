@@ -1,0 +1,9 @@
+Resources:
+  Assignment1S3Bucket: 
+    Type: AWS::S3::Bucket
+
+Outputs:
+  Assignment1S3Bucket:
+    Value: !Ref 'Assignment1S3Bucket'
+    Description: Assignment1 S3 Bucket
+

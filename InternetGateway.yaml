@@ -1,0 +1,13 @@
+Resources:
+  Assignment1InternetGateway:
+    Type: AWS::EC2::InternetGateway
+    Properties: 
+      Tags:
+       - Key: stack
+         Value: production
+      
+
+Outputs:
+  Assignment1InternetGateway:
+    Value: !Ref 'Assignment1InternetGateway'
+    Description: Assignment1 Internet Gateway

@@ -1,0 +1,49 @@
+Resources:
+
+  S3Bucket:
+    Type: AWS::CloudFormation::Stack
+    Properties: 
+      TemplateURL: https://cf-templates-14tqp3ycc1jtp-eu-west-1.s3.eu-west-1.amazonaws.com/S3Stack.yaml
+
+  Assignment1InternetGateway:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: https://cf-templates-14tqp3ycc1jtp-eu-west-1.s3.eu-west-1.amazonaws.com/InternetGateway.yaml
+
+  PrivateEC2InstanceEUWest1a:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: https://cf-templates-14tqp3ycc1jtp-eu-west-1.s3.eu-west-1.amazonaws.com/PrivateEC2StackEUWest1a.yaml
+
+  PublicEC2InstanceEUWest1a:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: https://cf-templates-14tqp3ycc1jtp-eu-west-1.s3.eu-west-1.amazonaws.com/PublicEC2StackEUWest1a.yaml
+
+  PrivateEC2InstanceEUWest1b:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: https://cf-templates-14tqp3ycc1jtp-eu-west-1.s3.eu-west-1.amazonaws.com/PrivateEC2StackEUWest1b.yaml 
+
+  PublicEC2InstanceEUWest1b:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: https://cf-templates-14tqp3ycc1jtp-eu-west-1.s3.eu-west-1.amazonaws.com/PublicEC2StackEUWest1b.yaml 
+      
+
+Outputs:
+  StackRef:
+    Value: !Ref S3Bucket
+    Value: !Ref Assignment1InternetGateway
+    Value: !Ref PrivateEC2InstanceEUWest1a
+    Value: !Ref PublicEC2InstanceEUWest1a
+    Value: !Ref PrivateEC2InstanceEUWest1b
+    Value: !Ref PublicEC2InstanceEUWest1b
+  OutputFromNestedStack:
+    Value: !GetAtt S3Bucket.Outputs.Assignment1S3Bucket
+    Value: !GetAtt InternetGateway.Outputs.Assignment1InternetGateway
+    Value: !GetAtt PrivateEC2InstanceEUWest1a.Outputs.Assignment1PrivateEC2EUWest1a
+    Value: !GetAtt PublicEC2InstanceEUWest1a.Outputs.Assignment1PublicEC2EUWest1a
+    Value: !GetAtt PrivateEC2InstanceEUWest1b.Outputs.Assignment1PrivateEC2EUWest1b
+    Value: !GetAtt PublicEC2InstanceEUWest1b.Outputs.Assignment1PublicEC2EUWest1b
+ 
