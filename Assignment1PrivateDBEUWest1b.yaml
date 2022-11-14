@@ -1,0 +1,12 @@
+Resources: 
+  Assignment1PrivateDBEUWest1b:
+    Type: AWS::RDS::DBInstance
+    Properties: 
+      AvailabilityZone: eu-west-1b 
+      DBSecurityGroups:
+        - instances
+
+Outputs:
+  Assignment1PrivateEC2EUWest1b:
+    Value: !Ref 'Assignment1PrivateDBEUWest1b'
+    Description: Assignment1 Private DB Instance
